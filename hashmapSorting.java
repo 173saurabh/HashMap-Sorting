@@ -19,7 +19,7 @@ public class Main {
         .stream()
         .sorted(comparingByValue())
         .collect(
-            toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2,
+            Collectors.toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2,
                 LinkedHashMap::new));
  
     System.out.println("map after sorting by values: " + sorted);
@@ -30,7 +30,7 @@ public class Main {
         .stream()
         .sorted(comparingByValue())
         .collect(
-            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+            Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                 LinkedHashMap::new));
  
     // now let's sort the map in decreasing order of value
@@ -39,7 +39,7 @@ public class Main {
         .stream()
         .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
         .collect(
-            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+            Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                 LinkedHashMap::new));
  
     System.out.println("map after sorting by values in descending order: "
